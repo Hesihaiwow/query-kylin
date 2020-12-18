@@ -13,9 +13,14 @@ public class MethodInfo {
 
     private Integer methodId;
 
-    private Long wrongNum;
+    private Integer wrongNum;
 
-    private Double scoreRatio;
+    private BigDecimal scoreRatio;
+
+    private Integer examNum;
+
+    private Integer topicNum;
+
 
     public Integer getMethodId() {
         return methodId;
@@ -25,40 +30,35 @@ public class MethodInfo {
         this.methodId = methodId;
     }
 
-    private Long examNum;
-
-    private Long topicNum;
-
-
-    public Long getWrongNum() {
+    public Integer getWrongNum() {
         return wrongNum;
     }
 
-    public void setWrongNum(Long wrongNum) {
+    public void setWrongNum(Integer wrongNum) {
         this.wrongNum = wrongNum;
     }
 
-    public Double getScoreRatio() {
+    public BigDecimal getScoreRatio() {
         return scoreRatio;
     }
 
-    public void setScoreRatio(Double scoreRatio) {
+    public void setScoreRatio(BigDecimal scoreRatio) {
         this.scoreRatio = scoreRatio;
     }
 
-    public Long getExamNum() {
+    public Integer getExamNum() {
         return examNum;
     }
 
-    public void setExamNum(Long examNum) {
+    public void setExamNum(Integer examNum) {
         this.examNum = examNum;
     }
 
-    public Long getTopicNum() {
+    public Integer getTopicNum() {
         return topicNum;
     }
 
-    public void setTopicNum(Long topicNum) {
+    public void setTopicNum(Integer topicNum) {
         this.topicNum = topicNum;
     }
 }

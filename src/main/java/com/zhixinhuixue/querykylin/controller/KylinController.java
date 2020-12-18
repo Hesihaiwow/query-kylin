@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -95,6 +97,7 @@ public class KylinController {
 
         if (!CollectionUtils.isEmpty(query)) {
             for (int i = 0; i < query.size(); i++) {
+                query.get(i).setScoreRatio(query.get(i).getScoreRatio().setScale(2, RoundingMode.DOWN));
                 ClazzExamMethodScoreResDTO clazzExamMethodScoreResDTO = new ClazzExamMethodScoreResDTO();
                 BeanUtils.copyProperties(query.get(i), clazzExamMethodScoreResDTO);
                 objects.add(clazzExamMethodScoreResDTO);
@@ -113,10 +116,10 @@ public class KylinController {
         public MethodInfo mapRow(ResultSet resultSet, int i) throws SQLException {
             MethodInfo methodInfo = new MethodInfo();
             methodInfo.setMethodId(resultSet.getInt("method_id"));
-            methodInfo.setScoreRatio(resultSet.getDouble("score_rate"));
-            methodInfo.setWrongNum(resultSet.getLong("wrong_num"));
-            methodInfo.setExamNum(resultSet.getLong("exam_num"));
-            methodInfo.setTopicNum(resultSet.getLong("topic_num"));
+            methodInfo.setScoreRatio(resultSet.getBigDecimal("score_rate"));
+            methodInfo.setWrongNum(resultSet.getInt("wrong_num"));
+            methodInfo.setExamNum(resultSet.getInt("exam_num"));
+            methodInfo.setTopicNum(resultSet.getInt("topic_num"));
             return methodInfo;
         }
     }
