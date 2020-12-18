@@ -1,0 +1,88 @@
+2020-12-18 10:31:00.050 [main] INFO  com.zhixinhuixue.querykylin.QueryKylinApplication - Starting QueryKylinApplication using Java 1.8.0_221 on DESKTOP-6JKAE2Q with PID 10636 (C:\Users\r\Desktop\query-kylin\target\classes started by r in C:\Users\r\Desktop\query-kylin)
+2020-12-18 10:31:00.053 [main] INFO  com.zhixinhuixue.querykylin.QueryKylinApplication - No active profile set, falling back to default profiles: default
+2020-12-18 10:31:01.165 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-12-18 10:31:01.175 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-12-18 10:31:01.176 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-18 10:31:01.176 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-18 10:31:01.270 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/academic] - Initializing Spring embedded WebApplicationContext
+2020-12-18 10:31:01.270 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1170 ms
+2020-12-18 10:31:02.251 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-18 10:31:02.394 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-12-18 10:31:02.410 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/academic'
+2020-12-18 10:31:02.418 [main] INFO  com.zhixinhuixue.querykylin.QueryKylinApplication - Started QueryKylinApplication in 2.866 seconds (JVM running for 3.833)
+2020-12-18 10:31:09.744 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/academic] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-18 10:31:09.744 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-12-18 10:31:09.745 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2020-12-18 10:31:14.206 [http-nio-8080-exec-1] DEBUG org.springframework.jdbc.core.JdbcTemplate - Executing prepared SQL query
+2020-12-18 10:31:14.209 [http-nio-8080-exec-1] DEBUG org.springframework.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT
+	method_id,
+	sum( scoring ) / sum( score ) AS score_rate,
+	sum( is_wrong ) AS wrong_num,
+	count( DISTINCT exam_id ) AS exam_num,
+	count( DISTINCT exam_topic ) AS topic_num 
+FROM
+	exam_student_topic_extend 
+WHERE
+	exam_time >= ? 
+	AND exam_time <= ? 
+	AND class_id IN (
+ ? 	) 
+	AND subject_id = ? 
+	AND text_book_id = ? 
+GROUP BY
+	method_id 
+HAVING
+	score_rate >= ? 
+	AND score_rate <= ? 
+ORDER BY
+	score_rate,
+	method_id]
+2020-12-18 10:46:08.931 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-18 10:46:13.079 [main] INFO  com.zhixinhuixue.querykylin.QueryKylinApplication - Starting QueryKylinApplication using Java 1.8.0_221 on DESKTOP-6JKAE2Q with PID 17916 (C:\Users\r\Desktop\query-kylin\target\classes started by r in C:\Users\r\Desktop\query-kylin)
+2020-12-18 10:46:13.083 [main] INFO  com.zhixinhuixue.querykylin.QueryKylinApplication - No active profile set, falling back to default profiles: default
+2020-12-18 10:46:14.363 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-12-18 10:46:14.371 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-12-18 10:46:14.372 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-18 10:46:14.372 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-18 10:46:14.470 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/academic] - Initializing Spring embedded WebApplicationContext
+2020-12-18 10:46:14.470 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1248 ms
+2020-12-18 10:46:15.408 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-18 10:46:15.554 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-12-18 10:46:15.573 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/academic'
+2020-12-18 10:46:15.581 [main] INFO  com.zhixinhuixue.querykylin.QueryKylinApplication - Started QueryKylinApplication in 3.036 seconds (JVM running for 3.978)
+2020-12-18 10:46:26.502 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/academic] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-18 10:46:26.503 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-12-18 10:46:26.504 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2020-12-18 10:57:28.332 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-18 10:57:32.197 [main] INFO  com.zhixinhuixue.querykylin.QueryKylinApplication - Starting QueryKylinApplication using Java 1.8.0_221 on DESKTOP-6JKAE2Q with PID 9300 (C:\Users\r\Desktop\query-kylin\target\classes started by r in C:\Users\r\Desktop\query-kylin)
+2020-12-18 10:57:32.200 [main] INFO  com.zhixinhuixue.querykylin.QueryKylinApplication - No active profile set, falling back to default profiles: default
+2020-12-18 10:57:33.368 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-12-18 10:57:33.376 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-12-18 10:57:33.377 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-18 10:57:33.377 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-18 10:57:33.482 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/academic] - Initializing Spring embedded WebApplicationContext
+2020-12-18 10:57:33.483 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1234 ms
+2020-12-18 10:57:34.452 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-18 10:57:34.599 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-12-18 10:57:34.615 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/academic'
+2020-12-18 10:57:34.623 [main] INFO  com.zhixinhuixue.querykylin.QueryKylinApplication - Started QueryKylinApplication in 2.923 seconds (JVM running for 3.818)
+2020-12-18 10:57:43.313 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/academic] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-18 10:57:43.313 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-12-18 10:57:43.314 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2020-12-18 11:02:52.132 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-18 11:02:56.494 [main] INFO  com.zhixinhuixue.querykylin.QueryKylinApplication - Starting QueryKylinApplication using Java 1.8.0_221 on DESKTOP-6JKAE2Q with PID 30856 (C:\Users\r\Desktop\query-kylin\target\classes started by r in C:\Users\r\Desktop\query-kylin)
+2020-12-18 11:02:56.497 [main] INFO  com.zhixinhuixue.querykylin.QueryKylinApplication - No active profile set, falling back to default profiles: default
+2020-12-18 11:02:57.592 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-12-18 11:02:57.601 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-12-18 11:02:57.602 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-18 11:02:57.602 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-18 11:02:57.681 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/academic] - Initializing Spring embedded WebApplicationContext
+2020-12-18 11:02:57.681 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1133 ms
+2020-12-18 11:02:58.644 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-18 11:02:58.789 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-12-18 11:02:58.804 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/academic'
+2020-12-18 11:02:58.812 [main] INFO  com.zhixinhuixue.querykylin.QueryKylinApplication - Started QueryKylinApplication in 2.812 seconds (JVM running for 3.701)
+2020-12-18 11:03:05.520 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/academic] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-18 11:03:05.520 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-12-18 11:03:05.521 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2020-12-18 12:13:31.194 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
